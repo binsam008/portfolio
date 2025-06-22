@@ -66,15 +66,15 @@
 
 /* === Dark Mode and Light Mode Variables === */
 @layer base {
-  :root {
-    --background: 0 0% 100%; /* light mode (white) */
-    --foreground: 222 47% 11%;
+:root {
+  --background: 0 0% 100%;          /* pure white */
+  --foreground: 222 47% 11%;        /* dark text */
 
-    --card: 0 0% 100%;
-    --primary: 270 100% 70%; /* neon purple */
-    --primary-foreground: 0 0% 100%;
-    --border: 270 100% 60%; /* light purple */
-  }
+  --card: 0 0% 98%;                 /* light card */
+  --primary: 270 100% 70%;          /* neon purple */
+  --primary-foreground: 0 0% 100%;  /* white text on purple */
+  --border: 270 100% 60%;           /* light purple border */
+}
 
   .dark {
     --background: 0 0% 0%; /* ⚫ pure black */

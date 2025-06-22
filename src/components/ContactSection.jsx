@@ -1,5 +1,6 @@
 import { useState } from "react";
-import image from "../assets/Contact/contact.png"
+import image from "../assets/Contact/contact.png";
+
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
@@ -14,20 +15,19 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="min-h-screen py-20 px-6 bg-gradient-to-b from-black via-[#0e001d] to-black text-white"
+      className="min-h-screen py-20 px-6 bg-background text-foreground transition-colors"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        
-        {/* Left: Contact Form (comes first on large screens) */}
+        {/* Form */}
         <div className="order-2 md:order-1">
-          <div className="bg-black/50 backdrop-blur-md p-8 rounded-2xl border border-purple-700 shadow-2xl">
-            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-indigo-400 mb-8">
+          <div className="bg-card p-8 rounded-2xl border border-purple-500 shadow-lg">
+            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-indigo-500 mb-8">
               got something to say? 👀
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="text-sm mb-1 block font-semibold text-gray-300">
+                <label className="text-sm mb-1 block font-semibold">
                   your name
                 </label>
                 <input
@@ -37,12 +37,12 @@ export default function ContactSection() {
                   value={form.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-md bg-[#1b1b2f] text-white placeholder:text-gray-400 border border-purple-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="w-full px-4 py-3 rounded-md bg-background border border-purple-400 text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-pink-400"
                 />
               </div>
 
               <div>
-                <label className="text-sm mb-1 block font-semibold text-gray-300">
+                <label className="text-sm mb-1 block font-semibold">
                   your email
                 </label>
                 <input
@@ -52,12 +52,12 @@ export default function ContactSection() {
                   value={form.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-md bg-[#1b1b2f] text-white placeholder:text-gray-400 border border-purple-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="w-full px-4 py-3 rounded-md bg-background border border-purple-400 text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-pink-400"
                 />
               </div>
 
               <div>
-                <label className="text-sm mb-1 block font-semibold text-gray-300">
+                <label className="text-sm mb-1 block font-semibold">
                   spill the tea
                 </label>
                 <textarea
@@ -67,27 +67,27 @@ export default function ContactSection() {
                   onChange={handleChange}
                   rows="4"
                   required
-                  className="w-full px-4 py-3 rounded-md bg-[#1b1b2f] text-white placeholder:text-gray-400 border border-purple-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="w-full px-4 py-3 rounded-md bg-background border border-purple-400 text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-pink-400"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full mt-4 py-3 rounded-md bg-gradient-to-r from-pink-500 to-indigo-500 hover:opacity-90 transition font-semibold flex items-center justify-center gap-2"
+                className="w-full mt-4 py-3 rounded-md bg-gradient-to-r from-pink-500 to-indigo-500 hover:opacity-90 transition font-semibold"
               >
-                <span>🚀 send it!</span>
+                🚀 send it!
               </button>
             </form>
           </div>
         </div>
 
-        {/* Right: Cool Image (on the right) */}
+        {/* Image */}
         <div className="order-1 md:order-2 flex justify-center">
           <img
             src={image}
             alt="dev illustration"
             className="w-auto h-[420px] md:h-[500px] object-contain"
-        />
+          />
         </div>
       </div>
     </section>

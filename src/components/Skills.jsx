@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import image from "../assets/Skills/me.png";
-import vscode from "../assets/Skills/vscode.png"
-import react from "../assets/Skills/react.png"
+import vscode from "../assets/Skills/vscode.png";
+import react from "../assets/Skills/react.png";
 import python from "../assets/Skills/python.png";
 import html from "../assets/Skills/html.png";
 import tailwind from "../assets/Skills/tailwind.png";
@@ -10,11 +10,7 @@ import php from "../assets/Skills/php.png";
 import github from "../assets/Skills/github.png";
 import mongodb from "../assets/Skills/mongodb.png";
 
-const icons = [
-  python, vscode, react,
-  html, tailwind, php,
-  github, mongodb
-];
+const icons = [python, vscode, react, html, tailwind, php, github, mongodb];
 
 const skills = {
   "Core Technologies": [
@@ -25,15 +21,15 @@ const skills = {
     { name: "C", percent: 75, note: "vibing with it" },
   ],
   "Frameworks & Platforms": [
-    {name: "React", percent: 85, note: "pretty fire"},
-    {name: "Node.js", percent: 50, note: "An average user"},
-    {name: "Django", percent: 60, note: "getting there"},
-    {name: "Flask", percent: 60, note: "getting there"},
+    { name: "React", percent: 85, note: "pretty fire" },
+    { name: "Node.js", percent: 50, note: "an average user" },
+    { name: "Django", percent: 60, note: "getting there" },
+    { name: "Flask", percent: 60, note: "getting there" },
   ],
-  "Databases": [
-    {name: "SQL", percent: 85, note: "pretty fire"},
-    {name: "MongoDB", percent: 70, note: "getting there"},
-    {name: "Firebase", percent: 60, note: "getting there"},
+  Databases: [
+    { name: "SQL", percent: 85, note: "pretty fire" },
+    { name: "MongoDB", percent: 70, note: "getting there" },
+    { name: "Firebase", percent: 60, note: "getting there" },
   ],
 };
 
@@ -41,55 +37,50 @@ export default function Skills() {
   const [activeTab, setActiveTab] = useState("Core Technologies");
 
   return (
-    <section id="skills" className="bg-white dark:bg-black text-black dark:text-white py-16 px-4 md:px-10 transition-colors duration-300">
+    <section
+      id="skills"
+      className="bg-background text-foreground py-16 px-4 md:px-10 transition-colors duration-300"
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Left: Rotating Tech Circle */}
+        <div className="relative w-full h-[400px] flex items-center justify-center">
+          <motion.div
+            className="relative w-64 h-64"
+            animate={{ rotate: 360 }}
+            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+          >
+            {icons.map((src, i) => {
+              const angle = (360 / icons.length) * i;
+              const radius = 120;
+              const x = radius * Math.cos((angle * Math.PI) / 180);
+              const y = radius * Math.sin((angle * Math.PI) / 180);
+              return (
+                <img
+                  key={i}
+                  src={src}
+                  alt={`icon-${i}`}
+                  className="absolute w-12 h-12 rounded-full shadow-lg ring-2 ring-purple-400 bg-white"
+                  style={{
+                    left: `calc(50% + ${x}px - 24px)`,
+                    top: `calc(50% + ${y}px - 24px)`,
+                  }}
+                />
+              );
+            })}
+          </motion.div>
 
-       {/* Left: Rotating Tech Vibe Circle */}
-<div className="relative w-full h-[400px] flex items-center justify-center">
-  <motion.div
-    className="relative w-64 h-64"
-    animate={{ rotate: 360 }}
-    transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-  >
-    {icons.map((src, i) => {
-      const total = icons.length;
-      const angle = (360 / total) * i;
-      const radius = 120; // Adjust to make the circle bigger/smaller
-      const x = radius * Math.cos((angle * Math.PI) / 180);
-      const y = radius * Math.sin((angle * Math.PI) / 180);
+          <div className="absolute w-28 h-28 rounded-full overflow-hidden ring-4 ring-white dark:ring-purple-500 shadow-2xl">
+            <img src={image} alt="me" className="object-cover w-full h-full" />
+          </div>
+        </div>
 
-      return (
-        <img
-          key={i}
-          src={src}
-          alt={`icon-${i}`}
-          className="absolute w-12 h-12 rounded-full shadow-lg ring-2 ring-purple-400 bg-white"
-          style={{
-            left: `calc(50% + ${x}px - 24px)`,
-            top: `calc(50% + ${y}px - 24px)`,
-          }}
-        />
-      );
-    })}
-  </motion.div>
-
-  {/* Center image */}
-  <div className="absolute w-28 h-28 rounded-full overflow-hidden ring-4 ring-white dark:ring-purple-500 shadow-2xl">
-    <img
-      src={image}
-      alt="me"
-      className="object-cover w-full h-full"
-    />
-  </div>
-</div>
-
-        {/* Right: Tech Stack */}
-        <div className="w-full p-6 rounded-xl bg-black/10 dark:bg-black/30 border border-purple-500 shadow-lg">
+        {/* Right: Skills Content */}
+        <div className="w-full p-6 rounded-xl bg-card border border-purple-500 shadow-lg">
           <h2 className="text-purple-600 dark:text-purple-400 text-2xl font-semibold mb-4 text-center">
             ✨ my tech stack ✨
           </h2>
 
-          <div className="flex justify-center space-x-4 mb-6 flex-wrap">
+          <div className="flex justify-center flex-wrap gap-x-4 gap-y-3 mb-6">
             {Object.keys(skills).map((tab) => (
               <button
                 key={tab}
@@ -133,12 +124,13 @@ export default function Skills() {
                   </div>
                 </div>
                 <div>{name}</div>
-                <span className="text-xs text-purple-500 dark:text-purple-400 italic">"{note}"</span>
+                <span className="text-xs text-purple-500 dark:text-purple-400 italic">
+                  "{note}"
+                </span>
               </div>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

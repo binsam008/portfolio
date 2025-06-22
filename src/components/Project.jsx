@@ -1,11 +1,17 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import project1 from "../assets/Project/project1.png";
+import project2 from "../assets/Project/project2.png";
+import project3 from "../assets/Project/project3.png";
+import project4 from "../assets/Project/project4.png";
+import project5 from "../assets/Project/project5.png";
+import project6 from "../assets/Project/project6.png";
 
 const projects = [
   {
     id: 1,
     title: "Well-Reach Logistics",
     description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project1.png",
+    image: project1,
     tags: ["React", "TailwindCSS"],
     demoUrl: "https://www.wellreachlogisticsbh.com/",
     githubUrl: "https://github.com/binsam008/projects",
@@ -15,7 +21,7 @@ const projects = [
     title: "chat application",
     description:
       "A real-time chat application built with React, ChatEngine",
-    image: "/projects/project2.png",
+    image: project2,
     tags: ["React", "ChatEngine"],
   },
   {
@@ -23,7 +29,7 @@ const projects = [
     title: "Humeny",
     description:
       "care taker app for elderly people, built with React and tailwindcss",
-    image: "/projects/project3.png",
+    image: project3,
     tags: ["React", "TailwindCSS"],
     demoUrl: "https://takecare-ten.vercel.app/",
     githubUrl: "https://github.com/binsam008/my-project",
@@ -32,14 +38,14 @@ const projects = [
     id: 4,
     title:"E-commerce App",
     description: "A fully functional e-commerce app built with html,css,php,sql.",
-    image: "/projects/project4.png",
+    image: project4,
     tags: ["HTML", "CSS", "PHP", "SQL"],
   },
   {
     id: 5,
     title: "Captainz-Esports",
     description: "A landing page for an esports team, built with Html, CSS, and JavaScript.",
-    image: "/projects/project5.png",
+    image: project5,
     tags: ["HTML", "CSS", "JavaScript"],
     demoUrl: "https://captainzesports.vercel.app/",
     githubUrl: "https://github.com/binsam008/cnz"
@@ -48,7 +54,7 @@ const projects = [
     id: 6,
     title:"Ztech digitals",
     description: "A landing page for a digital marketing agency, built with React and TailwindCSS.",
-    image: "/projects/project6.png",
+    image: project6,
     tags: ["React", "TailwindCSS"],
     demoUrl: "https://ztechdigitals.vercel.app/",
     githubUrl: "https://github.com/binsam008/ztechdigitals"
