@@ -6,6 +6,7 @@ import { Project } from "../components/Project"
 import Skills from "../components/Skills"
 import  ContactSection  from "../components/ContactSection"
 import CustomCursor from "../components/CustomCursor"
+import Footer from "../components/Footer"
 
 export const Home =()=>{
     return <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -24,9 +25,11 @@ export const Home =()=>{
         <main>
             <HeroSection/>
             <AboutMe/>
-            <Project/>
             <Skills/>
+            <Project/>
+            
             <ContactSection/>
+            <Footer/>
         </main>
 
 

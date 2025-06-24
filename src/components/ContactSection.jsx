@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import image from "../assets/Contact/contact.png";
 
 export default function ContactSection() {
@@ -9,7 +10,28 @@ export default function ContactSection() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thanks ${form.name}, we’ll get back to you soon!`);
+
+    emailjs
+      .send(
+        "service_co4vjho", // 🔁 Replace with your EmailJS Service ID
+        "template_afbpiut", // 🔁 Replace with your EmailJS Template ID
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        },
+        "xTz2PCn4crj7tMv82" // 🔁 Replace with your EmailJS Public Key
+      )
+      .then(
+        () => {
+          alert(`Thanks ${form.name}, your message has been sent!`);
+          setForm({ name: "", email: "", message: "" }); // Reset form
+        },
+        (error) => {
+          console.error("Email send failed:", error);
+          alert("Something went wrong. Please try again.");
+        }
+      );
   };
 
   return (
